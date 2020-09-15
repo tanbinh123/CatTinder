@@ -15,6 +15,7 @@ public class CatController {
 	
 	@GetMapping(value = "/index")
 	public String catList(Model model) {
+		model.addAttribute("title", "Cat List");
 		model.addAttribute("cats", crepository.findAll());
 		return "catlist";
 	}
