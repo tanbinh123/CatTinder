@@ -28,6 +28,15 @@ public class Cat {
 		this.birthYear = birthYear;
 	}
 
+	public Cat(String name, String description, String location, boolean female, int birthYear) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.location = location;
+		this.female = female;
+		this.birthYear = birthYear;
+	}
+
 	public long getId() {
 		return id;
 	}
