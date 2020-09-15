@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+<body>
+	<h1>Cat Listing</h1>
+ 	<table>
+		 <thead>
+			<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Image</th>
+			<th>Location</th>
+			<th>Sex</th>
+			<th>Birth Year</th>
+			</tr>
+		 </thead>
+		<tbody>
+			<tr th:each="cat : ${cats}">
+				<td th:text="${cat.name}"></td>
+				<td th:text="${cat.description}"></td>
+				<td>
+				<span th:if="${cat.imageUrl == null}">No Image</span>
+				<span th:if="${cat.imageUrl != null}"><a th:href="${cat.imageUrl}" th:text="${cat.imageUrl}"></a>
+				</span>
+				</td>
+				<td th:text="${cat.location}"></td>
+				<td>
+					<span th:if="${cat.female == true}">Female</span>
+					<span th:if="${cat.female == false}">Male</span>
+				</td>
+				<td th:text="${cat.birthYear}"></td>	
+			<!--  <td><a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+				<td><a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
+			--> 
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
