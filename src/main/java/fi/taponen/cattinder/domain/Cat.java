@@ -1,5 +1,7 @@
 package fi.taponen.cattinder.domain;
 
+import java.util.Calendar;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -93,4 +95,9 @@ public class Cat {
 		this.birthYear = birthYear;
 	}
 	
+	public int calcAge() {
+		int year = Calendar.getInstance().get(Calendar.YEAR);
+		return year-this.birthYear;
+	}
+
 }

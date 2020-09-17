@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<nav th:replace="fragments/navigation :: navigation"></nav>
+	<div class="container">
+	<h1 th:text="${title}"></h1>
+	<a class="btn btn-primary" href="/index">Back to listing</a>
+	<form style="max-width:580px" th:object="${cat}" th:action="@{../save}" action="#" method="post">
+		<div class="form-group">
+			<input type="hidden" th:field="*{id}" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label for="Name">Name</label>
+			<input class="form-control" type="text" id="name" th:field="*{name}"/>
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label>
+			<input class="form-control" type="text" id="description" th:field="*{description}"/>
+		</div>
+		<div class="form-check-inline form-group">
+			<input class="form-check-input" type="radio" id="male" th:value="false" name="gender" th:field="*{female}" />
+			<label class="form-check-label" for="male">Male</label>
+		</div>
+		<div class="form-check-inline form-group">
+			<input class="form-check-input" type="radio" id="female" th:value="true" name="gender" th:field="*{female}" />
+			<label class="form-check-label" for="female">Female</label>
+		</div>
+		<div class="form-group">
+			<label for="imageUrl">Image URL</label>
+			<input class="form-control" type="text" id="imageUrl" th:field="*{imageUrl}"/>
+		</div>
+		<div class="form-group">
+			<label for="location">Location</label>
+			<input class="form-control" type="text" id="location" th:field="*{location}"/>
+		</div>
+		<div class="form-group">
+			<label for="birthYear">Birth Year</label>
+			<input class="form-control" type="text" id="birthYear" th:field="*{birthYear}"/>
+		</div>
+		<input class="btn btn-success" type="submit" value="Save"></input>
+	</form>
+	</div>
+	
+</body>
+</html>

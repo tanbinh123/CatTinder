@@ -4,8 +4,9 @@
 <body>
 <nav th:replace="fragments/navigation :: navigation"></nav>
 <div class="container">
-	<h1>Cat Listing</h1>
- 	<table class="table table-striped">
+	<h1 th:text="${title}"></h1>
+	<!-- 
+    <table class="table table-striped">
 		 <thead>
 			<tr>
 			<th>Name</th>
@@ -31,14 +32,36 @@
 					<span th:if="${cat.female == false}">Male</span>
 				</td>
 				<td th:text="${cat.birthYear}"></td>	
-			<!--  <td><a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
-				<td><a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
-			--> 
+				<td><a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${cat.id})}">Delete</a></td>
+				<td><a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${cat.id})}">Edit</a></td>
+			
 			</tr>
 		</tbody>
-	</table>
-</div>
+	</table>  
+	-->
+	<a href="/add" class="btn btn-success">Add a New Cat</a>
+ 	<div th:each="cat : ${cats}">
+		<div class="card" style="width: 18rem;">
+		  	<span th:if="${cat.imageUrl!=null and !cat.imageUrl.empty}"><img th:src="@{cat.imageUrl}" /></span>
+	  		<span th:if="${cat.imageUrl==null or cat.imageUrl.empty}"><img th:src="@{https://source.unsplash.com/1000x1000/?cat}" class="card-img-top" alt="..." /></span>
+	  		<div class="card-body">
+			    <h5 class="card-title" th:text="${cat.name}">Cat Name</h5>
+			    <p class="card-text" th:text="${cat.description}"></p>
+			    <ul>
+			    	<li th:text="${cat.location}"></li>
+			    	<li>
+			    		<span th:if="${cat.female == true}">Female</span>
+						<span th:if="${cat.female == false}">Male</span>
+			    	</li>
+			    	<li th:text="${cat.calcAge()} + ' year(s) old'"></li>
+			    </ul>
+			<!--  <a href="#" class="btn btn-sm btn-primary">View details</a> -->
+			    <a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${cat.id})}">Edit</a>
+			   <a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${cat.id})}">Delete</a>
+			</div>
+		</div>
+	</div>
 	
-
+</div>
 </body>
 </html>

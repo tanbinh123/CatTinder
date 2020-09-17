@@ -11,6 +11,10 @@ body {
   text-align: center;
 }
 
+form {
+	text-align: left;
+}
+
 .navbar {
 	background-color:#ff4c68;
 }
