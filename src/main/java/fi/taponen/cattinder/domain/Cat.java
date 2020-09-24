@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cat {
@@ -18,8 +20,24 @@ public class Cat {
 	private boolean female;
 	int birthYear;
 	
+	@ManyToOne
+	@JoinColumn(name = "breed_id")
+	private Breed breed;
+	
 	public Cat() {}
 	
+	public Cat(String name, String description, String imageUrl, String location, boolean female, int birthYear,
+			Breed breed) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.imageUrl = imageUrl;
+		this.location = location;
+		this.female = female;
+		this.birthYear = birthYear;
+		this.breed = breed;
+	}
+
 	public Cat(String name, String description, String imageUrl, String location, boolean female, int birthYear) {
 		super();
 		this.name = name;
@@ -30,6 +48,16 @@ public class Cat {
 		this.birthYear = birthYear;
 	}
 
+	public Cat(String name, String description, String location, boolean female, int birthYear, Breed breed) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.location = location;
+		this.female = female;
+		this.birthYear = birthYear;
+		this.breed = breed;
+	}
+	
 	public Cat(String name, String description, String location, boolean female, int birthYear) {
 		super();
 		this.name = name;
@@ -95,6 +123,14 @@ public class Cat {
 		this.birthYear = birthYear;
 	}
 	
+	public Breed getBreed() {
+		return breed;
+	}
+
+	public void setBreed(Breed breed) {
+		this.breed = breed;
+	}
+
 	public int calcAge() {
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 		return year-this.birthYear;

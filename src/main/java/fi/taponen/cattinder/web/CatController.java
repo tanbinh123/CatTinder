@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import fi.taponen.cattinder.domain.BreedRepository;
 import fi.taponen.cattinder.domain.Cat;
 import fi.taponen.cattinder.domain.CatRepository;
 
@@ -16,16 +17,20 @@ public class CatController {
 	@Autowired
 	private CatRepository crepository;
 	
+	@Autowired
+	private BreedRepository brepository;
+	
 	// View list
 	@GetMapping(value = {"/", "/index"})
 	public String catList(Model model) {
 		model.addAttribute("title", "Cat List");
 		model.addAttribute("cats", crepository.findAll());
+		model.addAttribute("breeds", brepository.findAll());
 		return "catlist";
 	}
 	
 	//Add
-	@GetMapping(value = "/add" )
+	@GetMapping(value = "/add")
 	public String addCat(Model model) {
 		model.addAttribute("title", "Add a New Cat");
 		model.addAttribute("cat", new Cat());
@@ -48,10 +53,10 @@ public class CatController {
 	}
 	
 	//Delete
-		@GetMapping(value = "/delete/{id}")
-		public String deleteBook(@PathVariable("id") Long catId, Model model) {
-			crepository.deleteById(catId);
-			return "redirect:../index";
-		}
+	@GetMapping(value = "/delete/{id}")
+	public String deleteBook(@PathVariable("id") Long catId, Model model) {
+		crepository.deleteById(catId);
+		return "redirect:../index";
+	}
 
 }
