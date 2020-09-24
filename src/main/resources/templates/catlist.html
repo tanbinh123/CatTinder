@@ -40,6 +40,7 @@
 	</table>  
 	-->
 	<a href="/add" class="btn btn-success">Add a New Cat</a>
+ 	<div class="card-container">
  	<div th:each="cat : ${cats}">
 		<div class="card" style="width: 18rem;">
 		  	<span th:if="${cat.imageUrl!=null and !cat.imageUrl.empty}"><img th:src="@{cat.imageUrl}" /></span>
@@ -61,6 +62,7 @@
 			   <a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${cat.id})}">Delete</a>
 			</div>
 		</div>
+	</div>
 	</div>
 	
 </div>

@@ -40,9 +40,29 @@ h1 {
 
 /******* Card ********/
 
+.card-container {
+	padding: 3rem 0;
+	display: grid;
+	row-gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	justify-items: center;
+	align-items: center;
+}
+
 .card-body h6 {
 	font-weight: bold;
 	font-size: 0.8rem;
+}
+
+.card-body ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.card-body ul li {
+		padding: 0 1rem;
+		text-align: left;
+		border-left: 3px solid #ff4c68;
 }
 
 /******* Form ********/
