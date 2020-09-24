@@ -34,6 +34,7 @@ public class CatController {
 	public String addCat(Model model) {
 		model.addAttribute("title", "Add a New Cat");
 		model.addAttribute("cat", new Cat());
+		model.addAttribute("breeds", brepository.findAll());
 		return "addcat";
 	}
 	
@@ -42,6 +43,7 @@ public class CatController {
 	public String editCat(@PathVariable("id") Long catId, Model model) {
 		model.addAttribute("title", "Edit Cat");
 		model.addAttribute("cat", crepository.findById(catId));
+		model.addAttribute("breeds", brepository.findAll());
 		return "editcat";
 	}
 	

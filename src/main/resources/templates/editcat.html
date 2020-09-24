@@ -38,6 +38,12 @@
 			<label for="birthYear">Birth Year</label>
 			<input class="form-control" type="text" id="birthYear" th:field="*{birthYear}"/>
 		</div>
+		<div class="form-group">
+		    <label for="category">Breed</label>
+		    <select class="form-control" id="breedlist" th:field="*{breed}">
+		      <option th:each="breed : ${breeds}" th:value="${breed.breed_id}" th:text="${breed.breed_name}"></option>
+		    </select>
+		</div> 
 		<input class="btn btn-success" type="submit" value="Save"></input>
 	</form>
 	</div>

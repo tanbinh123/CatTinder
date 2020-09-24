@@ -46,7 +46,7 @@
 	  		<span th:if="${cat.imageUrl==null or cat.imageUrl.empty}"><img th:src="@{https://source.unsplash.com/1000x1000/?cat}" class="card-img-top" alt="..." /></span>
 	  		<div class="card-body">
 			    <h5 class="card-title" th:text="${cat.name}">Cat Name</h5>
-	<!-- 	    <p class="card-text" th:text="${cat.breed.breed_name}"></p> -->
+	 	   		<h6 class="card-text" th:text="${cat.breed.breed_name}"></h6>
 			    <p class="card-text" th:text="${cat.description}"></p>
 			    <ul>
 			    	<li th:text="${cat.location}"></li>

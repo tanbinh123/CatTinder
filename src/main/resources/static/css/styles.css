@@ -1,3 +1,12 @@
+/******* General ********/
+
+body {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+/******* Headers ********/
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Montserrat", sans-serif;
 }
@@ -6,14 +15,7 @@ h1 {
 	line-height: 2;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-}
-
-form {
-	text-align: left;
-}
+/******* Navigation ********/
 
 .navbar {
 	background-color:#ff4c68;
@@ -34,4 +36,17 @@ form {
 .nav-link {
   font-size: 1.2rem;
   font-weight: 300;
+}
+
+/******* Card ********/
+
+.card-body h6 {
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+/******* Form ********/
+
+form {
+	text-align: left;
 }
