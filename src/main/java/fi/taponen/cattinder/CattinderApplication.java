@@ -16,7 +16,7 @@ public class CattinderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CattinderApplication.class, args);
 	}
-
+	/*
 	@Bean
 	public CommandLineRunner demo(CatRepository repository, BreedRepository brepository) {
 		return (args) -> {
@@ -33,14 +33,14 @@ public class CattinderApplication {
 			repository.save(cat1);
 			repository.save(cat2);
 			repository.save(cat3);
-	/*
+
 			Cat cat1 = new Cat("Gizmo", "Shy but friendly", "Helsinki", true, 2019);
 			Cat cat2 = new Cat("Viiru", "Loves food", "Helsinki", true, 2019);
 			Cat cat3 = new Cat("Nuutti", "Alpha male", "Hyvinkää", false, 1994);
 			
 			repository.save(cat1);
 			repository.save(cat2);
-			repository.save(cat3);*/
+			repository.save(cat3);
 		};
-	}
+	}*/
 }

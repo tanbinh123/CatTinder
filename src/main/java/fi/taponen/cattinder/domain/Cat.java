@@ -9,14 +9,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @Entity
 public class Cat {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@NotNull
 	private long id;
 	
-	private String name, description, imageUrl, location;
+	@Size(min=2, max=250)
+	private String name;
+	private String description, imageUrl;
+	
+	@Size(min=2, max=250)
+	private String location;
 	private boolean female;
 	int birthYear;
 	

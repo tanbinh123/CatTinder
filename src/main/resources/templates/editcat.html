@@ -13,6 +13,7 @@
 		<div class="form-group">
 			<label for="Name">Name</label>
 			<input class="form-control" type="text" id="name" th:field="*{name}"/>
+			<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="description">Description</label>
@@ -33,6 +34,7 @@
 		<div class="form-group">
 			<label for="location">Location</label>
 			<input class="form-control" type="text" id="location" th:field="*{location}"/>
+			<span th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="birthYear">Birth Year</label>

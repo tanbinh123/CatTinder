@@ -5,10 +5,12 @@
 <nav th:replace="fragments/navigation :: navigation"></nav>
 <div class="container">
 	<h1 th:text="${title}"></h1>
+	<a class="btn btn-primary" href="/index">Back to listing</a>
 	<form style="max-width:580px" th:object="${cat}" th:action="@{save}" action="#" method="post">
 		<div class="form-group">
 			<label for="Name">Name</label>
 			<input class="form-control" type="text" id="name" th:field="*{name}"/>
+			<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="description">Description</label>
@@ -29,6 +31,7 @@
 		<div class="form-group">
 			<label for="location">Location</label>
 			<input class="form-control" type="text" id="location" th:field="*{location}"/>
+			<span th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="birthYear">Birth Year</label>

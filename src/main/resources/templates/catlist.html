@@ -41,28 +41,28 @@
 	-->
 	<a href="/add" class="btn btn-success">Add a New Cat</a>
  	<div class="card-container">
- 	<div th:each="cat : ${cats}">
-		<div class="card" style="width: 18rem;">
-		  	<span th:if="${cat.imageUrl!=null and !cat.imageUrl.empty}"><img th:src="@{cat.imageUrl}" /></span>
-	  		<span th:if="${cat.imageUrl==null or cat.imageUrl.empty}"><img th:src="@{https://source.unsplash.com/1000x1000/?cat}" class="card-img-top" alt="..." /></span>
-	  		<div class="card-body">
-			    <h5 class="card-title" th:text="${cat.name}">Cat Name</h5>
-	 	   		<h6 class="card-text" th:text="${cat.breed.breed_name}"></h6>
-			    <p class="card-text" th:text="${cat.description}"></p>
-			    <ul>
-			    	<li th:text="${cat.location}"></li>
-			    	<li>
-			    		<span th:if="${cat.female == true}">Female</span>
-						<span th:if="${cat.female == false}">Male</span>
-			    	</li>
-			    	<li th:text="${cat.calcAge()} + ' year(s) old'"></li>
-			    </ul>
-			<!--  <a href="#" class="btn btn-sm btn-primary">View details</a> -->
-			    <a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${cat.id})}">Edit</a>
-			   <a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${cat.id})}">Delete</a>
+	 	<div th:each="cat : ${cats}">
+			<div class="card" style="width: 18rem;">
+			  	<span th:if="${cat.imageUrl!=null and !cat.imageUrl.empty}"><img th:src="@{cat.imageUrl}" /></span>
+		  		<span th:if="${cat.imageUrl==null or cat.imageUrl.empty}"><img th:src="@{https://source.unsplash.com/1000x1000/?cat}" class="card-img-top" alt="..." /></span>
+		  		<div class="card-body">
+				    <h5 class="card-title" th:text="${cat.name}">Cat Name</h5>
+		 	   		<h6 class="card-text" th:text="${cat.breed.breed_name}"></h6>
+				    <p class="card-text" th:text="${cat.description}"></p>
+				    <ul>
+				    	<li th:text="${cat.location}"></li>
+				    	<li>
+				    		<span th:if="${cat.female == true}">Female</span>
+							<span th:if="${cat.female == false}">Male</span>
+				    	</li>
+				    	<li th:text="${cat.calcAge()} + ' year(s) old'"></li>
+				    </ul>
+				<!--  <a href="#" class="btn btn-sm btn-primary">View details</a> -->
+				    <a class="btn btn-sm btn-info" th:href="@{/edit/{id}(id=${cat.id})}">Edit</a>
+				   <a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${cat.id})}">Delete</a>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	
 </div>

@@ -1,8 +1,11 @@
 package fi.taponen.cattinder.web;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,7 +52,11 @@ public class CatController {
 	
 	//Save new or changed
 	@PostMapping(value = "/save")
-	public String save(Cat cat) {
+	public String save(@Valid Cat cat, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("breeds", brepository.findAll());
+			return "editcat";
+		}
 		crepository.save(cat);
 		return "redirect:index";
 	}
