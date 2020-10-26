@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head></head>
 <body>
 <div >
@@ -7,8 +7,8 @@
 <a class="navbar-brand text-white" href="/">Cat Tinder</a>
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="navbar-nav">
-        <a class="nav-link text-white" href="/booklist">List</a>
-        <a class="nav-link text-white" href="/addbook">Add</a>
+        <a class="nav-link text-white" href="/index">List</a>
+        <a sec:authorize="hasAuthority('ADMIN')" class="nav-link text-white" href="/add">Add</a>
 	</div>
   </div>
 </nav>

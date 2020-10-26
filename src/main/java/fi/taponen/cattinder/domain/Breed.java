@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Breed {
 	
@@ -25,6 +27,7 @@ public class Breed {
 	private String description;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "breed")
+	@JsonBackReference
 	private List<Cat> cats;
 	
 	public Breed() {}

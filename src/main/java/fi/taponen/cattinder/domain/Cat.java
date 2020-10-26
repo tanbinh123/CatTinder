@@ -1,5 +1,6 @@
 package fi.taponen.cattinder.domain;
 
+import java.beans.Transient;
 import java.util.Calendar;
 
 import javax.persistence.Entity;
@@ -8,9 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Cat {
@@ -22,7 +24,8 @@ public class Cat {
 	
 	@Size(min=2, max=250)
 	private String name;
-	private String description, imageUrl;
+	private String description;
+	private String imageUrl;
 	
 	@Size(min=2, max=250)
 	private String location;
@@ -30,6 +33,7 @@ public class Cat {
 	int birthYear;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "breed_id")
 	private Breed breed;
 	
@@ -143,6 +147,19 @@ public class Cat {
 	public int calcAge() {
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 		return year-this.birthYear;
+	}
+	
+	@Transient
+	public String getCatImagePath() {
+		if (imageUrl == null) return null;
+			return "/cat-images/" + id + "/" + imageUrl;
+	}
+
+	@Override
+	public String toString() {
+		return "Cat [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl=" + imageUrl
+				+ ", location=" + location + ", female=" + female + ", birthYear=" + birthYear + ", breed=" + breed
+				+ ", getCatImagePath()=" + getCatImagePath() + "]";
 	}
 
 }

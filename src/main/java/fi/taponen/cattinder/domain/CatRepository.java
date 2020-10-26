@@ -7,4 +7,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface CatRepository extends CrudRepository<Cat, Long> {
 	List<Cat> findByLocation(@Param("location") String location);
+	List<Cat> findByName(@Param("name") String name);
 }

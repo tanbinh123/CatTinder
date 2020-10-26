@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="fragments/head :: head"></head>
 <body>
-	<nav th:replace="fragments/navigation :: navigation"></nav>
-	<div class="container">
+<nav th:replace="fragments/navigation :: navigation"></nav>
+<div class="container">
 	<h1 th:text="${title}"></h1>
 	<a class="btn btn-primary" href="/index">Back to listing</a>
-	<form style="max-width:580px" th:object="${cat}" th:action="@{../save}" action="#" method="post">
+	<form style="max-width:580px" th:object="${cat}" th:action="@{../save}" action="#" method="post" enctype="multipart/form-data">
 		<div class="form-group">
 			<input type="hidden" th:field="*{id}" class="form-control"/>
 		</div>
@@ -27,10 +27,12 @@
 			<input class="form-check-input" type="radio" id="female" th:value="true" name="gender" th:field="*{female}" />
 			<label class="form-check-label" for="female">Female</label>
 		</div>
-		<div class="form-group">
-			<label for="imageUrl">Image URL</label>
-			<input class="form-control" type="text" id="imageUrl" th:field="*{imageUrl}"/>
-		</div>
+	<!-- 	<div class="form-group">
+			<label for="image">Image Upload</label>
+			<input class="form-control" type="text" id="imageUrl" th:field="*{catImagePath}"/>
+			<input type="file" name="image" id="image" accept="image/png, image/jpeg" />
+			<img style="width: 200px; height: auto;" id="thumbnail" alt="Image Preview" />
+		</div>  -->
 		<div class="form-group">
 			<label for="location">Location</label>
 			<input class="form-control" type="text" id="location" th:field="*{location}"/>
@@ -48,7 +50,24 @@
 		</div> 
 		<input class="btn btn-success" type="submit" value="Save"></input>
 	</form>
-	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#image').change(function() {
+			showImageThumbnail(this);
+		});
+	}) 
 	
+	function showImageThumbnail(fileInput) {
+		file = fileInput.files[0];
+		reader = new FileReader();
+		
+		reader.onload = function(e) {
+			$('#thumbnail').attr('src', e.target.result);
+			
+		};
+		reader.readAsDataURL(file);
+	}
+</script>
 </body>
 </html>
