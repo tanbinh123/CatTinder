@@ -1,4 +1,5 @@
 application.properties
+/cat-images
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar

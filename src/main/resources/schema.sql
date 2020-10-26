@@ -18,7 +18,10 @@ CREATE TABLE breed
 ,breed_name VARCHAR(250) NOT NULL
 ,description VARCHAR(250));
 
-INSERT INTO breed (breed_name, description) VALUES ("European shorthair", "Common cat in Europe with versatile characteristics"), ("Ragdoll", "American longhaired breed with very social temperament"), ("Siamese", "Asian shorthaired breed with distinctive mask and markings and very active character");
+INSERT INTO breed (breed_name, description) VALUES ("European shorthair", "Common cat in Europe with versatile characteristics"), 
+("Ragdoll", "American longhaired breed with very social temperament"), 
+("Siamese", "Asian shorthaired breed with distinctive mask and markings and very active character"),
+("Norwegian Forest Cat", "Longhaired breed that likes outdoors and is active and smart.");
 
 INSERT INTO cat (name, description, location, female, birth_year, breed_id)
 VALUES ("Gizmo", "Shy but friendly", "Helsinki", true, 2019, 1), 

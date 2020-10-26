@@ -15,12 +15,10 @@
 			<div class="card" style="width: 18rem;">
 			  	<span th:if="${cat.imageUrl!=null and !cat.imageUrl.empty}"><img class="card-img-top" th:src="@{${cat.catImagePath}}" /></span>
 		  		<span th:if="${cat.imageUrl==null or cat.imageUrl.empty}"><img style="width: 18rem; height: auto;" th:src="@{/images/noimage.png}"></span>
-		  		 <!--  <span th:if="${cat.imageUrl==null or cat.imageUrl.empty}"><img th:src="@{https://source.unsplash.com/1000x1000/?cat}" class="card-img-top" alt="..." /></span> -->
 		  		<div class="card-body">
 				    <h5 class="card-title" th:text="${cat.name}">Cat Name</h5>
 		 	   		<h6 class="card-text" th:text="${cat.breed.breed_name}"></h6>
 				    <p class="card-text" th:text="${cat.description}"></p>
-				    <p th:text="${cat.catImagePath}"></p>
 				    <ul>
 				    	<li th:text="${cat.location}"></li>
 				    	<li>

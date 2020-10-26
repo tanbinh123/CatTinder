@@ -67,7 +67,8 @@ public class CatController {
 	@GetMapping(value = "/edit/{id}")
 	public String editCat(@PathVariable("id") Long catId, Model model) {
 		model.addAttribute("title", "Edit Cat");
-		model.addAttribute("cat", crepository.findById(catId));
+	//	model.addAttribute("cat", crepository.findById(catId));
+		crepository.findById(catId).ifPresent(o -> model.addAttribute("cat", o)); // unwrap the object to allow image preview in Edit
 		model.addAttribute("breeds", brepository.findAll());
 		return "editcat";
 	}
