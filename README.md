@@ -1,6 +1,6 @@
 # Cat Tinder
 
-MakeApp is a responsive website created with Spring Boot and Thymeleaf that where user can find new cat friends. 
+Cat Tinder is a responsive website created with Spring Boot and Thymeleaf that where user can find new cat friends. 
 
 ## What does it do?
 
