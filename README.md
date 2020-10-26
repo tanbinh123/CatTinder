@@ -21,7 +21,8 @@ Login is required. The basic users can view the existing cat listing. Users with
 ### REST API
 - A basic REST API has been created with Spring Boot Starter Data REST. API calls can be made to basepath /api.
 
-### Image upload is possible for Admin role. Image can be uploaded on /addcat page and changed on /editcat page.
+### Image upload
+- Image upload is possible for Admin role. Image can be uploaded on /addcat page and changed on /editcat page.
 
 ## Who will use this project?
 
