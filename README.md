@@ -18,6 +18,11 @@ Login is required. The basic users can view the existing cat listing. Users with
 ### Security
 - Cat Tinder users Spring Boot Starter Security and Thymeleaf Spring Security 5 for security, authentication and authorization
 
+### REST API
+- A basic REST API has been created with Spring Boot Starter Data REST. API calls can be made to basepath /api.
+
+### Image upload is possible for Admin role. Image can be uploaded on /addcat page and changed on /editcat page.
+
 ## Who will use this project?
 
 This application is a course project for the Server Programming course (SWD4TA020). In the future the project may be extended to include further functionalities.
@@ -33,4 +38,5 @@ See above.
   - Authentication: Spring Boot Starter Security, Thymeleaf Spring Security 5
   - Database: MariaDB
   - Styling: [Bootstrap](https://www.getbootstrap.com/), internal CSS
+  - REST: Spring Boot Starter Data REST
   - Image upload: Spring starter dependency, with the help of Nam Ha Minh's tutorial](https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial#)
