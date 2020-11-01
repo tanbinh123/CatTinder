@@ -77,8 +77,8 @@ public class CatController {
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping(value = "/save")
 	public String save(@Valid Cat cat, BindingResult bindingResult,
-			@RequestParam("image") MultipartFile file, //new 
-			 Model model) throws IOException {//new
+			@RequestParam("image") MultipartFile file,
+			 Model model) throws IOException {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("breeds", brepository.findAll());
 			return "editcat";
@@ -89,6 +89,7 @@ public class CatController {
 		Cat savedCat = crepository.save(cat); 
 		String uploadDir = "./cat-images/" + savedCat.getId();
 		
+		//get the path for uploading the file
 		//String uploadDir = "src/main/resources/static/images/cat-images/" + savedCat.getId();
 		Path uploadPath = Paths.get(uploadDir);
 		if (!Files.exists(uploadPath)) { 
@@ -103,7 +104,6 @@ public class CatController {
 		} catch (IOException ioe) {
 			throw new IOException("Could not save uploaded file: " + fileName, ioe);
 		}	
-		//end new
 		
 		return "redirect:index";
 	}

@@ -13,7 +13,7 @@ Login is required. The basic users can view the existing cat listing. Users with
 ## How does it work?
 
 ### Database and DB server
-- Cat Tinder uses MariaDB as database. The DB server is located on Haaga-Helia server
+- Cat Tinder uses MariaDB as database. The DB server is located on Haaga-Helia server.
 
 ### Security
 - Cat Tinder users Spring Boot Starter Security and Thymeleaf Spring Security 5 for security, authentication and authorization
@@ -40,4 +40,4 @@ See above.
   - Database: MariaDB
   - Styling: [Bootstrap](https://www.getbootstrap.com/), internal CSS
   - REST: Spring Boot Starter Data REST
-  - Image upload: Spring starter dependency, with the help of Nam Ha Minh's tutorial](https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial#)
+  - Image upload: Spring starter dependency, with the help of [Nam Ha Minh's tutorial](https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial#)

@@ -42,6 +42,6 @@ public class CatRepositoryTest {
 		Long id = cat.get(0).getId();
 		System.out.println("id" + id);
 		repository.deleteById(id);
-        assertThat(repository.count()).isEqualTo(4);
+        assertThat(repository.count()).isEqualTo(6);
 	}
 }
